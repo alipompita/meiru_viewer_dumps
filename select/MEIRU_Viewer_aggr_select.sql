@@ -12,15 +12,11 @@ left join dss_members member on member.ident = screen.ident
 where phq9tot >= 9 and member.site = 1
 group by member.sex;
 
-
-
-
 select distinct screen.ident, max(phq9tot)
 from screens screen
 left join dss_members member on member.ident = screen.ident
 where phq9tot >= 9
 group by ident;
-
 
 select date_format(intdate, '%Y') As year, count(ident) as anx_symptoms
 from screens
