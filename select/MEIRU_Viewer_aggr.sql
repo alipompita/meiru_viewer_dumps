@@ -37,3 +37,48 @@ create table if not exists screens(
     gad7tot int
 );
 
+create table if not exists mhc_stages(
+	id int not null primary key,
+    name varchar(32),
+    description text
+);
+
+insert into mhc_stages values ('1', 'Initial Stage', null);
+
+create table if not exists mhc_visits(
+	id int not null primary key auto_increment,
+    ident varchar(8),
+		foreign key (ident) references dss_members(ident),
+	stid varchar(8),
+    stage int,
+		foreign key (stage) references mhc_stages(id),
+	visit_date date,
+    site int,
+		foreign key (site) references sites (id),
+	appointment_type int
+);
+
+create table if not exists mhc_discharges(
+	id int not null primary key auto_increment,
+    ident varchar(8),
+		foreign key (ident) references dss_members(ident),
+	stid varchar(8),
+    discharged int,
+    site int,
+		foreign key (site) references sites (id),
+	discharge_date date,
+    entry_date date
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
