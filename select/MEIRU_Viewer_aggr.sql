@@ -1,6 +1,4 @@
-show databases;
 
-create database if not exists meiru_viewer_aggr;
 
 use meiru_viewer_aggr;
 
