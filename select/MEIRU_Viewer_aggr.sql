@@ -1,4 +1,4 @@
-
+create database if not exists meiru_viewer_aggr;
 
 use meiru_viewer_aggr;
 
@@ -17,8 +17,7 @@ create table if not exists dss_members(
     site int,
 		foreign key (site) references sites (id)
 );
-
-drop table if exists study_screen_points;
+ 
 create table if not exists study_screen_points(
 	code varchar(8) not null primary key,
     study varchar(4),
